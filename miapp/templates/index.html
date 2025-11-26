@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batman Beyond - Inicio</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #f0f0f0;
+            background-color: #0a0a0a;
+            background-image: linear-gradient(to bottom, #0a0a0a, #1a1a2e);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+     
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            border-bottom: 2px solid #ffcc00;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+        }
+        
+        .batman-symbol {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #ffcc00;
+            margin-right: 10px;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 20px;
+        }
+        
+        nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            color: #ffcc00;
+            background-color: rgba(255, 204, 0, 0.1);
+        }
+      
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0a0a"/><path d="M50,10 L60,40 L90,40 L65,60 L75,90 L50,70 L25,90 L35,60 L10,40 L40,40 Z" fill="%23ffcc00" opacity="0.1"/></svg>');
+            background-size: 200px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-section h1 {
+            font-size: 4rem;
+            color: #ffcc00;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+        
+        .hero-section p {
+            font-size: 1.5rem;
+            color: #f0f0f0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+       
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .welcome-section h2 {
+            font-size: 2.2rem;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+        
+        .welcome-section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cccccc;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ffcc00, transparent);
+            margin: 40px 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background-color: rgba(26, 26, 46, 0.7);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 204, 0, 0.5);
+        }
+        
+        .feature-card h3 {
+            color: #ffcc00;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        .links-list {
+            display: inline-block;
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid #ffcc00;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .links-list:hover {
+            background-color: #ffcc00;
+            color: #0a0a0a;
+        }
+        
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            border-top: 2px solid #ffcc00;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            text-align: center;
+            color: #cccccc;
+        }
+        
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="batman-symbol"></span>BATMAN
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="mision.html">Misión</a></li>
+                    <li><a href="vision.html">Visión</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>BATMAN</h1>
+            <p>El futuro del Caballero Oscuro está aquí</p>
+        </section>
+
+        <div class="content-wrapper">
+            <section class="welcome-section">
+                <h2>Bienvenido al Futuro de Gotham</h2>
+                <p>Explora el legado de Batman en el año 2039, donde Terry McGinnis toma el manto del Caballero Oscuro bajo la tutela del mismo Bruce Wayne. Una nueva era para la justicia en Ciudad Gótica.</p>
+            </section>
+
+            <hr>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3> Misión</h3>
+                    <p>Descubre los objetivos y propósitos que guían al nuevo Batman en la protección de Ciudad Gótica.</p>
+                    <a href="mision.html" class="links-list">Ver Misión</a>
+                </div>
+
+                <div class="feature-card">
+                    <h3> Visión</h3>
+                    <p>Conoce la perspectiva única de Batman sobre el futuro de la justicia y el crimen en la ciudad.</p>
+                    <a href="vision.html" class="links-list">Ver Visión</a>
+                </div>
+
+                <div class="feature-card">
+                    <h3> Historia</h3>
+                    <p>Adéntrate en la cronología completa del universo Batman Beyond desde sus inicios.</p>
+                    <a href="historia.html" class="links-list">Ver Historia</a>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3> Galería</h3>
+                    <p>Colección exclusiva de imágenes del traje, tecnología y momentos icónicos de Batman Beyond.</p>
+                    <a href="galeria.html" class="links-list">Ver Galería</a>
+                </div>
+
+                <div class="feature-card">
+                    <h3> Contacto</h3>
+                    <p>Información relevante para ponerte en contacto con la causa del Caballero Oscuro.</p>
+                    <a href="contacto.html" class="links-list">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href = "{ % url 'vistaPrincipal' % }"></a>
+
+    <footer>
+        <div class="container">
+            <p><small>Batman Beyond &copy; 2039 - El futuro del Caballero Oscuro</small></p>
+        </div>
+    </footer>
+</body>
+</html>
